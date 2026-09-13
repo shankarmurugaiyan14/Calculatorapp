@@ -1,2 +1,0 @@
-# Calculatorapp
-WEB application calculator
