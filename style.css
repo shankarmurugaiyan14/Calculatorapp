@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+  --page: #111724;
+  --card: rgba(29, 39, 59, .82);
+  --screen: rgba(10, 16, 29, .54);
+  --text: #f5f8ff;
+  --muted: #94a2bf;
+  --button: #313e56;
+  --button-hover: #3c4b66;
+  --utility: #46536c;
+  --accent: #a7f178;
+  --accent-dark: #18341e;
+  --shadow: 0 25px 60px rgba(0, 0, 0, .34);
+}
+
+body.light {
+  --page: #e9efff;
+  --card: rgba(255, 255, 255, .86);
+  --screen: #edf2ff;
+  --text: #152039;
+  --muted: #72809b;
+  --button: #e0e7f4;
+  --button-hover: #d2dbea;
+  --utility: #c8d4e8;
+  --accent-dark: #1e4724;
+  --shadow: 0 25px 55px rgba(63, 83, 125, .19);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--text);
+  background: radial-gradient(circle at 15% 15%, #31527c 0, transparent 32%), radial-gradient(circle at 85% 85%, #314d59 0, transparent 30%), var(--page);
+  font-family: Outfit, sans-serif;
+}
+
+.calculator {
+  width: min(100%, 375px);
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; }
+.eyebrow { margin: 0 0 2px; color: var(--muted); font: 500 10px 'DM Mono', monospace; letter-spacing: .12em; }
+h1 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+.theme-button { width: 38px; height: 38px; border: 0; border-radius: 50%; color: var(--text); background: var(--button); cursor: pointer; font-size: 20px; }
+
+.display { min-height: 136px; margin-bottom: 18px; padding: 22px 18px; display: flex; flex-direction: column; justify-content: end; align-items: flex-end; overflow: hidden; border-radius: 21px; background: var(--screen); }
+.previous { min-height: 22px; color: var(--muted); font: 400 14px 'DM Mono', monospace; }
+output { max-width: 100%; overflow-x: auto; color: var(--text); font: 500 clamp(34px, 11vw, 47px) 'DM Mono', monospace; letter-spacing: -.08em; }
+
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; }
+.key { aspect-ratio: 1; border: 0; border-radius: 17px; color: var(--text); background: var(--button); cursor: pointer; font: 600 20px Outfit, sans-serif; transition: transform .14s ease, background .14s ease; }
+.key:hover { background: var(--button-hover); transform: translateY(-2px); }
+.key:active { transform: translateY(1px) scale(.97); }
+.utility { color: var(--text); background: var(--utility); font-size: 16px; }
+.operator { color: var(--accent); font-size: 25px; }
+.equals { color: var(--accent-dark); background: var(--accent); font-size: 27px; }
+.equals:hover { background: #bcff94; }
+.zero { grid-column: span 2; aspect-ratio: auto; }
+
+@media (max-width: 390px) { .calculator { padding: 19px; border-radius: 25px; } .key { border-radius: 14px; } }
